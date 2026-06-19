@@ -1,8 +1,14 @@
-let carrinho = [];
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
 function adicionarCarrinho(id){
     let produto = produtos.find(item => item.id === id);
     carrinho.push(produto);
+    atualizarCarrinho();
+
+    localStorage.setItem(
+    "carrinho",
+    JSON.stringify(carrinho)
+);
     atualizarCarrinho();
 }
 
@@ -21,10 +27,19 @@ function atualizarCarrinho(){
     });
     document.getElementById("total").innerHTML =
     total.toFixed(2);
+    document.getElementById("quantidade").innerHTML = carrinho.length;
 }
 
 setTimeout(() => {
     document.getElementById("status").innerHTML =
     "Pedido saiu para entrega";
 }, 10000);
+
+atualizarCarrinho();
+
+function limparCarrinho(){
+    carrinho = [];
+    localStorage.removeItem("carrinho");
+    atualizarCarrinho();
+}
 

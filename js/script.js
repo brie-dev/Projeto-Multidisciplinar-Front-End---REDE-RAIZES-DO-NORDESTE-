@@ -1,17 +1,34 @@
-let areaProdutos = document.getElementById("produtos");
+let areaProdutos =
+document.getElementById("produtos");
 
-produtos.forEach(produto => {
-    areaProdutos.innerHTML += `
-    <div class="card">
-        <img src="${produto.imagem}" width="200">
-
+function exibirProdutos(lista){
+    areaProdutos.innerHTML="";
+    lista.forEach(produto=>{
+        areaProdutos.innerHTML += `
+        <div class="card">
         <h3>${produto.nome}</h3>
-
         <p>R$ ${produto.preco}</p>
-
         <button onclick="adicionarCarrinho(${produto.id})">
-            Adicionar
+        Adicionar
         </button>
-    </div>
-    `;
-});
+        </div>
+        `;
+    });
+}
+
+function filtrar(){
+    let categoria =
+    document.getElementById("categoria").value;
+    if(categoria=="Todos"){
+        exibirProdutos(produtos);
+    }
+    else{
+        let resultado =
+        produtos.filter(
+            produto =>
+            produto.categoria == categoria
+        );
+        exibirProdutos(resultado);
+    }
+}
+exibirProdutos(produtos);
