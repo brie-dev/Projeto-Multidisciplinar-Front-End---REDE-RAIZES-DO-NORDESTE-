@@ -19,6 +19,7 @@ function login(){
     let senha =
     document.getElementById("senha").value;
     if(
+        usuario &&
         email===usuario.email &&
         senha===usuario.senha
     ){

@@ -32,6 +32,11 @@ function atualizarCarrinho(){
     document.getElementById("total").innerHTML =
     total.toFixed(2);
     document.getElementById("quantidade").innerHTML = carrinho.length;
+
+    if(carrinho.length==0){
+        areaCarrinho.innerHTML=
+        "<h3>Carrinho vazio</h3>";
+    }
 }
 
 setTimeout(() => {
