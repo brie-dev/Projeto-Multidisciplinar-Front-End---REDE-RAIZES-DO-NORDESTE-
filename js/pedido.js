@@ -1,5 +1,5 @@
 function finalizarPedido(){
-    window.location.href="pedido.html";
+    window.location.href="pagamento.html";
 }
 
 setTimeout(()=>{
