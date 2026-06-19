@@ -19,10 +19,14 @@ function atualizarCarrinho(){
     carrinho.forEach(item => {
         total += item.preco;
         areaCarrinho.innerHTML += `
-            <p>
-                ${item.nome}
-                - R$ ${item.preco}
-            </p>
+            <div class="itemCarrinho">
+                <p>
+                ${item.nome} - R$ ${item.preco}
+                </p>
+                <button onclick="removerItem(${item.id})">
+                Remover
+                </button>
+            </div>
         `;
     });
     document.getElementById("total").innerHTML =
@@ -41,5 +45,18 @@ function limparCarrinho(){
     carrinho = [];
     localStorage.removeItem("carrinho");
     atualizarCarrinho();
+}
+
+function removerItem(id){
+    let indice =
+    carrinho.findIndex(item => item.id === id);
+    if(indice !== -1){
+        carrinho.splice(indice,1);
+        localStorage.setItem(
+            "carrinho",
+            JSON.stringify(carrinho)
+        );
+        atualizarCarrinho();
+    }
 }
 
