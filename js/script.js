@@ -6,6 +6,7 @@ function exibirProdutos(lista){
     lista.forEach(produto=>{
         areaProdutos.innerHTML += `
         <div class="card">
+        <img src="${produto.imagem}">
         <h3>${produto.nome}</h3>
         <p>R$ ${produto.preco}</p>
         <button onclick="adicionarCarrinho(${produto.id})">
