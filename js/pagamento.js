@@ -16,29 +16,17 @@ function cartao(){
 }
 
 function confirmarPagamento(){
-    let pontos =
-    localStorage.getItem("pontos");
-    if(pontos == null){
-        pontos = 0;
-    }
-    pontos = parseInt(pontos) + 10;
-    localStorage.setItem(
-        "pontos",
-        pontos
-    );
+    let pontos = parseInt(localStorage.getItem("pontos")) || 0;
+    pontos += 10;
+    localStorage.setItem("pontos", pontos.toString());
 
-    let pedidos =
-    JSON.parse(localStorage.getItem("pedidos")) || [];
+    let pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
     pedidos.push({
-    numero: pedidos.length+1,
-    status:"Em preparo"
+        numero: pedidos.length + 1,
+        status: "Em preparo"
     });
-    localStorage.setItem(
-    "pedidos",
-    JSON.stringify(pedidos)
-    );
+    localStorage.setItem("pedidos", JSON.stringify(pedidos));
 
     alert("Pagamento aprovado!");
-    window.location.href="pedido.html";
-
+    window.location.href = "pedido.html";
 }

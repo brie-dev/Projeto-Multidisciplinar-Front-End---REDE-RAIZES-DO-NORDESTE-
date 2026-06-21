@@ -1,48 +1,46 @@
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
 function adicionarCarrinho(id){
-    let produto = produtos.find(item => item.id === id);
+    let produto = (typeof produtos !== "undefined")
+        ? produtos.find(item => item.id === id)
+        : null;
+    if (!produto) {
+        return;
+    }
     carrinho.push(produto);
-    atualizarCarrinho();
-
-    localStorage.setItem(
-    "carrinho",
-    JSON.stringify(carrinho)
-);
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
     atualizarCarrinho();
 }
 
 function atualizarCarrinho(){
     let areaCarrinho = document.getElementById("carrinho");
+    if (!areaCarrinho) return;
     let total = 0;
     areaCarrinho.innerHTML = "";
     carrinho.forEach(item => {
         total += item.preco;
         areaCarrinho.innerHTML += `
             <div class="itemCarrinho">
-                <p>
-                ${item.nome} - R$ ${item.preco}
-                </p>
+                <p>${item.nome} - R$ ${item.preco.toFixed(2)}</p>
                 <button onclick="removerItem(${item.id})">
-                Remover
+                    Remover
                 </button>
             </div>
         `;
     });
-    document.getElementById("total").innerHTML =
-    total.toFixed(2);
-    document.getElementById("quantidade").innerHTML = carrinho.length;
+    let totalElement = document.getElementById("total");
+    let quantidadeElement = document.getElementById("quantidade");
+    if (totalElement) {
+        totalElement.innerHTML = total.toFixed(2);
+    }
+    if (quantidadeElement) {
+        quantidadeElement.innerHTML = carrinho.length;
+    }
 
-    if(carrinho.length==0){
-        areaCarrinho.innerHTML=
-        "<h3>Carrinho vazio</h3>";
+    if(carrinho.length == 0){
+        areaCarrinho.innerHTML = "<h3>Carrinho vazio</h3>";
     }
 }
-
-setTimeout(() => {
-    document.getElementById("status").innerHTML =
-    "Pedido saiu para entrega";
-}, 10000);
 
 atualizarCarrinho();
 
@@ -53,14 +51,10 @@ function limparCarrinho(){
 }
 
 function removerItem(id){
-    let indice =
-    carrinho.findIndex(item => item.id === id);
+    let indice = carrinho.findIndex(item => item.id === id);
     if(indice !== -1){
         carrinho.splice(indice,1);
-        localStorage.setItem(
-            "carrinho",
-            JSON.stringify(carrinho)
-        );
+        localStorage.setItem("carrinho", JSON.stringify(carrinho));
         atualizarCarrinho();
     }
 }

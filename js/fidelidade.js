@@ -1,8 +1,5 @@
-let pontos = localStorage.getItem("pontos");
-
-if(pontos==null){
-    pontos=0;
+let pontos = parseInt(localStorage.getItem("pontos")) || 0;
+let pontosElement = document.getElementById("pontos");
+if (pontosElement) {
+    pontosElement.innerHTML = pontos + " pontos";
 }
-document.getElementById("pontos")
-.innerHTML =
-pontos + " pontos";

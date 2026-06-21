@@ -1,18 +1,18 @@
 function finalizarPedido(){
-    window.location.href="pagamento.html";
+    window.location.href = "pagamento.html";
 }
 
-setTimeout(()=>{
-    document.getElementById("status")
-    .innerHTML="Em preparo";
-},2000);
+let statusElement = document.getElementById("status");
+if (statusElement) {
+    setTimeout(() => {
+        statusElement.innerHTML = "Em preparo";
+    }, 2000);
 
-setTimeout(()=>{
-    document.getElementById("status").innerHTML=
-    "Saiu para entrega";
-},10000);
+    setTimeout(() => {
+        statusElement.innerHTML = "Saiu para entrega";
+    }, 10000);
 
-setTimeout(()=>{
-    document.getElementById("status").innerHTML=
-    "Pedido entregue";
-},20000);
+    setTimeout(() => {
+        statusElement.innerHTML = "Pedido entregue";
+    }, 20000);
+}

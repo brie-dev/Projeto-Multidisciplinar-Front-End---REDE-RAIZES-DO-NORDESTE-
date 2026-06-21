@@ -1,7 +1,8 @@
-let menu =
-document.querySelector("nav");
-document
-.getElementById("menuMobile")
-.addEventListener("click",()=>{
-    menu.classList.toggle("ativo");
-});
+let menu = document.querySelector("nav");
+let menuButton = document.getElementById("menuMobile");
+
+if (menuButton && menu) {
+    menuButton.addEventListener("click", () => {
+        menu.classList.toggle("ativo");
+    });
+}
