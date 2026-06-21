@@ -40,10 +40,10 @@ main{
 }
 
 header{
-    background:#e67e22;
+    background:#b65a1c;
     color:white;
     padding:20px;
-} 
+}
 
 header h1{
     text-align:center;
@@ -157,8 +157,46 @@ footer{
     background:#222;
     color:white;
     text-align:center;
-    padding:20px;
+    padding:25px 20px;
     margin-top:40px;
+}
+
+footer p{
+    margin:8px 0;
+}
+
+footer .lgpd-note{
+    max-width:700px;
+    margin:0 auto;
+    font-size:0.9rem;
+    color:#d4d4d4;
+    line-height:1.5;
+}
+
+.lgpd-info{
+    background:rgba(255,255,255,0.95);
+    border:1px solid #e0d5c2;
+    border-left:6px solid #b65a1c;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    max-width:1000px;
+    margin:0 auto;
+}
+
+.lgpd-info h2{
+    color:#b65a1c;
+    margin-bottom:12px;
+}
+
+.lgpd-info p,
+.lgpd-info li{
+    color:#333;
+    margin-bottom:10px;
+}
+
+.lgpd-info ul{
+    margin-left:1.2rem;
 }
 
 input{
@@ -175,7 +213,7 @@ button,
 .botao{
     padding:15px;
     min-width:150px;
-    background:#27ae60;
+    background:#1f7a3d;
     color:white;
     border:none;
     border-radius:8px;
@@ -189,7 +227,7 @@ button,
 
 button:hover,
 .botao:hover{
-    background:#1e8449;
+    background:#196f3d;
     transform:scale(1.03);
 }
 
