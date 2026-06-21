@@ -7,25 +7,21 @@
     <title>Raízes do Nordeste | Carrinho</title>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Ir para o conteúdo</a>
     <header>
         <h1>Carrinho</h1>
     </header>
 
-    <section>
-        <div id="carrinho">
-
-        </div>
-        <h3>Itens no Carrinho: <span id="quantidade">0</span></h3>
-        <h2>Total: R$ <span id="total">0.00</span></h2>
-
-        <button onclick="finalizarPedido()">Finalizar Pedido</button>
-    </section>
-
-    <button onclick="limparCarrinho()">Limpar Carrinho</button>
-
-    <a href="cardapio.html" class="botao">
-        ← Voltar
-    </a>
+    <main id="main-content">
+        <section>
+            <div id="carrinho"></div>
+            <h3>Itens no Carrinho: <span id="quantidade">0</span></h3>
+            <h2>Total: R$ <span id="total">0.00</span></h2>
+            <button onclick="finalizarPedido()">Finalizar Pedido</button>
+            <button onclick="limparCarrinho()">Limpar Carrinho</button>
+            <a href="cardapio.html" class="botao">← Voltar</a>
+        </section>
+    </main>
 
     <footer>
         © 2026 Rede Raízes do Nordeste - Todos os direitos reservados.

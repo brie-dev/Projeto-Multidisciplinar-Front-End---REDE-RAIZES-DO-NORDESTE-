@@ -7,23 +7,23 @@
     <title>Raízes do Nordeste | Pagamento</title>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Ir para o conteúdo</a>
     <header>
         <h1>Pagamento</h1>
     </header>
 
-    <section>
-        <h2>Escolha sua forma de pagamento</h2>
-
-        <button onclick="pix()">PIX</button>
-        <button onclick="cartao()">Cartão de Crédito</button>
-
-        <div id="mensagem"></div>
-        <button onclick="confirmarPagamento()">Confirmar Pagamento</button>
-    </section>
-
-    <a href="carrinho.html" class="botao">
-        ← Voltar
-    </a>
+    <main id="main-content">
+        <section>
+            <h2>Escolha sua forma de pagamento</h2>
+            <div class="payment-options">
+                <button type="button" onclick="pix()">PIX</button>
+                <button type="button" onclick="cartao()">Cartão de Crédito</button>
+            </div>
+            <div id="mensagem" aria-live="polite"></div>
+            <button type="button" onclick="confirmarPagamento()">Confirmar Pagamento</button>
+        </section>
+        <a href="carrinho.html" class="botao">← Voltar</a>
+    </main>
 
     <footer>
         © 2026 Rede Raízes do Nordeste - Todos os direitos reservados.

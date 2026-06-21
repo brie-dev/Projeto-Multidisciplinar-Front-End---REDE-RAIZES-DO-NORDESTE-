@@ -7,23 +7,21 @@
     <title>Rede | Raízes do Nordeste</title>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Ir para o conteúdo</a>
     <header>
         <h1>Rede | Raízes do Nordeste</h1>
-        <button id="menuMobile">
-            ☰
-        </button>
-        <nav>
+        <button type="button" id="menuMobile" aria-controls="site-navigation" aria-expanded="false" aria-label="Abrir menu">☰</button>
+        <nav id="site-navigation" aria-label="Menu principal">
             <a href="index.html">Início</a>
             <a href="cardapio.html">Cardápio</a>
             <a href="promocoes.html">Promoções</a>
             <a href="fidelidade.html">Fidelidade</a>
             <a href="login.html">Login</a>
-
         </nav>
-        
     </header>
 
-    <section class="banner">
+    <main id="main-content">
+        <section class="banner">
         <h2>Sabores do Nordeste na sua mesa</h2>
         <p>Peça online e acompanhe seu pedido em tempo real!</p>
 
@@ -43,19 +41,13 @@
     <section class="sobre">
         <h2>Contato</h2>
         <p>(21) 1234-5678</p>
-        <p>contato@raizesdonordeste.com.br</p>
+        <p><a href="mailto:contato@raizesdonordeste.com.br">contato@raizesdonordeste.com.br</a></p>
         <p>Rio de Janeiro - RJ</p>
     </section>
-
-<!--<footer>
-        <label>
-            <input type="checkbox">
-            Li e concordo com a política de privacidade.
-        </label>
-    </footer>-->
+</main>
 
     <footer>
-    © 2026 Rede Raízes do Nordeste - Todos os direitos reservados.
+        © 2026 Rede Raízes do Nordeste - Todos os direitos reservados.
     </footer>
 
     <!--<section>

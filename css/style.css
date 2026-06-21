@@ -7,28 +7,71 @@
 body{
     font-family:Arial, sans-serif;
     background:#f8f5ef;
+    color:#222;
+    line-height:1.6;
+}
+
+.skip-link{
+    position:absolute;
+    left:-9999px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+.skip-link:focus,
+.skip-link:active{
+    position:static;
+    width:auto;
+    height:auto;
+    margin:16px;
+    padding:10px 20px;
+    background:#e67e22;
+    color:#fff;
+    text-decoration:none;
+    z-index:1000;
+}
+
+main{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 20px;
 }
 
 header{
     background:#e67e22;
     color:white;
     padding:20px;
-}
+} 
 
 header h1{
     text-align:center;
+    margin-bottom:10px;
 }
 
 nav{
     margin-top:15px;
     text-align:center;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    margin:15px;
+    margin:8px;
     font-weight:bold;
+    padding:8px 12px;
+    border-radius:8px;
+}
+
+nav a:focus-visible,
+nav a:hover{
+    outline:3px solid rgba(255,255,255,0.8);
+    outline-offset:3px;
 }
 
 section{
@@ -44,13 +87,14 @@ section{
 
 .card{
     background:white;
-    width:250px;
+    width:100%;
+    max-width:250px;
     border-radius:15px;
     overflow:hidden;
-    box-shadow:0px 0px 15px rgba(0,0,0,.2);
+    box-shadow:0px 0px 15px rgba(0,0,0,.15);
     text-align:center;
     padding:20px;
-    transition:.4s;
+    transition:transform .4s, box-shadow .4s;
 }
 
 .card img{
@@ -58,26 +102,40 @@ section{
     height:180px;
     object-fit:cover;
     border-radius:10px;
+    display:block;
 }
 
 .card:hover{
-    transform:scale(1.05);
-    transform:translateY(-10px);
+    transform:translateY(-10px) scale(1.05);
+    box-shadow:0 15px 25px rgba(0,0,0,.2);
 }
 
 .banner{
-    background:white;
+    background:#232a34;
     padding:40px;
-    height:400px;
+    min-height:400px;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    color:rgb(255, 255, 255);
+    color:white;
     text-align:center;
     background-image:url("../img/banner.jpg");
     background-size:cover;
     background-position:center;
+    position:relative;
+}
+
+.banner::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.45);
+}
+
+.banner *{
+    position:relative;
+    z-index:1;
 }
 
 .botao{
@@ -113,19 +171,34 @@ input{
     display:block;
 }
 
-button{
+button,
+.botao{
     padding:15px;
+    min-width:150px;
     background:#27ae60;
     color:white;
     border:none;
     border-radius:8px;
     cursor:pointer;
     transition:.3s;
+    text-align:center;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
 }
 
-button:hover{
+button:hover,
+.botao:hover{
     background:#1e8449;
-    transform:scale(1.05);
+    transform:scale(1.03);
+}
+
+button:focus-visible,
+.botao:focus-visible,
+input:focus-visible,
+select:focus-visible{
+    outline:3px solid #f39c12;
+    outline-offset:3px;
 }
 
 .promocao{
